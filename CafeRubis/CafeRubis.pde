@@ -38,7 +38,7 @@ void printProducts()
 void displayProducts(int amount)
 {
   float xborder = width * 0.025;  
-  float yborder = width * 0.07;
+  float yborder = height * 0.07;
   float boxLength = width * 0.3;  
   float yValue = (height - (2*yborder)) / (products.size() );
   float boxHeight = yValue - 10;
@@ -56,6 +56,33 @@ void displayProducts(int amount)
   text(products.get(amount).price, xborder + boxLength - 5, yborder + (yValue * amount) + (boxHeight/2) );
 }
 
+
+void mousePressed()
+{
+  for(int i = 0 ; i < products.size() ; i ++)
+  {
+    Product product = products.get(i);
+    
+  }  
+}
+
+void displayBill()
+{
+  float xborder = width * 0.6;  
+  float yborder = height * 0.07;
+  float boxLength = width * 0.35;  
+  float boxHeight = height - (2*yborder);
+  stroke(0);
+  fill(255);
+  rect(xborder, yborder, boxLength, boxHeight);
+  
+  fill(0);
+  textSize(11);
+  textAlign(CENTER);
+  text("Your Bill", xborder + (boxLength/2), yborder + 20);
+  
+}
+
 void draw()
 {
   background(175);
@@ -67,5 +94,6 @@ void draw()
   for(int i = 0; i < products.size(); i++)
   {
     displayProducts(i);
+    displayBill();
   }
 }
